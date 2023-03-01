@@ -1,0 +1,242 @@
+/*------------------------------------------------ a l'affiche------------------------------------------------ */
+.affiche-zone{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.title-section{
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--font-u);
+}
+.title-section:not(:first-of-type){
+    padding-top: 25px;
+}
+.affiche{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/1;
+    background-size: cover !important;
+    background-position: top !important;
+    border-radius: var(--bord-l);
+    padding: 7px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.affiche:first-of-type{
+    max-height:calc(100vh - 50px - 2.1875rem - 32px);
+    aspect-ratio: 1.778;
+}
+.etiquettes-line{
+    display: flex;
+    column-gap: 3.5px;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+}
+.etiquette{
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 10px;
+    color: var(--font-u-img);
+    padding: 1px 8px;
+    border-radius: 50px;
+    outline: 1px solid var(--font-u-img);
+}
+/* bloc de txt principale de l'affiche */
+.main-block-text{
+    width: min(80%, 500px);
+}
+.main-block-text h2{
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 2.125rem;
+    color: var(--font-u-img);
+    margin-top: 15px;
+}
+.main-block-text h5{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--font-d-img);
+}
+.main-block-text .description{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--font-u-img);
+}
+.btn-affiche{
+    display: flex;
+    column-gap: 8px;
+    padding-top: 15px;
+}
+.btn-affiche button{
+    height: 30px;
+    border-radius: var(--bord-m);
+    cursor: pointer;
+}
+.btn-affiche button:first-child{
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+    padding: 0 8px 0 8px;
+    background-color: var(--accentuation);
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 10px;
+    color: var(--font-u-img);
+}
+.btn-affiche button:last-child{
+    width: 30px;
+    outline: 1px solid var(--accentuation);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-affiche button:last-child svg{
+    width: 16px;
+}
+.btn-affiche button:last-child svg path{
+    fill:var(--accentuation);
+}
+/* btn share */
+.affiche .share{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+}
+/* affiche similaire */
+.similaire{
+    margin-top: -15px;
+    padding: 35px var(--bord-l) var(--bord-l) var(--bord-l);
+    background-color: var(--bg-d);
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: var(--bord-m);
+    border-bottom-right-radius: var(--bord-m);
+}
+.similaire .title-section{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: var(--font-u);
+}
+/*------------------------------------------------ flyer------------------------------------------------ */
+.top-container{
+    position: relative;
+    margin-top: 1.875rem;
+}
+.flyers-film{
+    display: flex;
+    column-gap: 7px;
+    width: 100%;
+    overflow-x: scroll;
+    padding-bottom: 7px;
+    cursor: pointer;
+    position: relative;
+}
+.flyer{
+    position: relative;
+    width: 10rem;
+    height: 14.0625rem;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: var(--bord-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 7px;
+    flex: 0 0 auto;
+}
+.flyer h3{
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--font-u-img);
+}
+.flyer h5{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.5rem;
+    color: var(--font-d-img);
+}
+.flyer .eval{
+    display: flex;
+    align-items: center;
+    column-gap: 2px;
+    height: 12px;
+}
+.flyer .eval h5{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.5rem;
+    color: var(--accentuation);
+    margin-top: 3px;
+}
+.flyer .save{
+    width: 1.5625rem;
+    height: auto;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+}
+.flyer .save path{
+    fill: var(--accentuation);
+}
+.top-section-btn{
+    position: absolute;
+    z-index: 1;
+    background-color: var(--accentuation);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transform:translate(-50%) rotate(0.5turn);
+}
+.top-section-btn:first-of-type{
+    left: 0;
+    top:50%;
+}
+.top-section-btn:last-of-type{
+    right: 0;
+    top:50%;
+    transform:translate(50%);
+}
+/*------------------------------------------------ footer------------------------------------------------ */
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+}
+/* media 1200 */
+@media (min-width:1200px) {
+.affiche:first-of-type{
+    max-height:calc(100vh - 2.1875rem - 32px);
+    aspect-ratio: 1.778;
+}
+/* affiche similaire */
+.similaire{
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    margin-top: inherit;
+    padding: inherit;
+    background-color: transparent;
+    max-width: 50%;
+}
+.similaire .title-section{
+    color: var(--font-u-img);
+}
+}

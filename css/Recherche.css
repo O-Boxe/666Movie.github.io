@@ -1,0 +1,182 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-container::after{
+    content: '';
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(rgb(0, 0, 0), rgba(255, 255, 255, 0.001)); /* transparent keyword is broken in Safari */
+}
+.search-bar{
+    width: calc(100% - 24px);
+    position: fixed;
+    z-index: 2;
+    display: flex;
+}
+.search-icon{
+    width: 50px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 12px 12px 0;
+    background-color: var(--bg-d);
+    cursor: pointer;
+}
+.search-icon-svg{
+    filter: var(--filter);
+}
+input[type=search]{
+    width: calc(100% - 50px);
+    min-height: 35px;
+    padding: 5px 12px;
+    color: var(--font-u);
+    background-color: var(--bg-d) !important;
+    border-radius: 12px 0 0 12px;
+    border-right: 1px solid var(--stroke);
+}
+input[type=search]::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    border-radius: 50em;
+    background: url(../img/supr.svg) no-repeat 50% 50%;
+    background-size: contain;
+    opacity: 0;
+    pointer-events: none;
+}
+input[type="search"]:focus::-webkit-search-cancel-button {
+    opacity: .3;
+    pointer-events: all;
+}
+/*------------------------------------------------ flyer------------------------------------------------ */
+.results{
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, 25vw);
+    gap: 7px;
+    margin-top: 46px;
+}
+.flyer{
+    position: relative;
+    min-width: 25vw;
+    aspect-ratio: 10/14.0625;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: var(--bord-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 7px;
+    flex: 0 0 auto;
+}
+.flyer h3{
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 0.625rem;
+    color: var(--font-u-img);
+}
+.flyer h5{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.5rem;
+    color: var(--font-d-img);
+}
+.flyer .eval{
+    display: flex;
+    align-items: center;
+    column-gap: 2px;
+    height: 12px;
+}
+.flyer .eval h5{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.5rem;
+    color: var(--accentuation);
+    margin-top: 3px;
+}
+.flyer .save{
+    width: 1.5625rem;
+    height: auto;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+}
+.flyer .save path{
+    fill: var(--accentuation);
+}
+.top-section-btn{
+    position: absolute;
+    z-index: 1;
+    background-color: var(--accentuation);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transform:translate(-50%) rotate(0.5turn);
+}
+.top-section-btn:first-of-type{
+    left: 0;
+    top:50%;
+}
+.top-section-btn:last-of-type{
+    right: 0;
+    top:50%;
+    transform:translate(50%);
+}
+/* show more btn */
+.show-more-btn{
+    display: none;
+    padding: 5px 12px;
+    color: var(--font-u-img);
+    background-color: var(--accentuation);
+    border-radius: var(--bord-m);
+    margin: 25px 0;
+}
+.show-more-btn.visible{
+    display: block;
+}
+@media (min-width:700px) {
+.main-container::after{
+    display: none;
+}
+.search-bar{
+    width: calc(100vw - 70px);
+    padding: 0 12px;
+}
+.search-icon:hover{
+    background-color: var(--bg-t);
+}
+.results{
+    display: grid;
+    max-width: 100%;
+    padding: 16px;
+    grid-template-columns: repeat(auto-fill, 10rem);
+    gap: 14px;
+    margin-top: 35px;
+}
+.flyer{
+    position: relative;
+    width: 10rem;
+    min-width: inherit;
+    aspect-ratio: 10/14.0625;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: var(--bord-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 7px;
+    flex: 0 0 auto;
+}
+.flyer h3{
+    font-size: 1rem;
+}
+}

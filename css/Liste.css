@@ -1,0 +1,113 @@
+.container-title{
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--font-u);
+}
+.list{
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, 25vw);
+    gap: 7px;
+    justify-content: center;
+}
+.flyer{
+    position: relative;
+    min-width: 25vw;
+    aspect-ratio: 10/14.0625;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: var(--bord-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 7px;
+    flex: 0 0 auto;
+}
+.flyer h3{
+    font-family: 'Outfit';
+    font-weight: 700;
+    font-size: 0.625rem;
+    color: var(--font-u-img);
+}
+.flyer h5{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.5rem;
+    color: var(--font-d-img);
+}
+.flyer .eval{
+    display: flex;
+    align-items: center;
+    column-gap: 2px;
+    height: 12px;
+}
+.flyer .eval h5{
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.5rem;
+    color: var(--accentuation);
+    margin-top: 3px;
+}
+.flyer .save{
+    width: 1.5625rem;
+    height: auto;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+}
+.flyer .save path{
+    fill: var(--accentuation);
+}
+.top-section-btn{
+    position: absolute;
+    z-index: 1;
+    background-color: var(--accentuation);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transform:translate(-50%) rotate(0.5turn);
+}
+.top-section-btn:first-of-type{
+    left: 0;
+    top:50%;
+}
+.top-section-btn:last-of-type{
+    right: 0;
+    top:50%;
+    transform:translate(50%);
+}
+@media (min-width:700px) {
+input[type=search]{
+    width: calc(100vw - 70px - 32px);
+}
+.list{
+    display: grid;
+    max-width: 100%;
+    padding: 16px;
+    grid-template-columns: repeat(auto-fill, 10rem);
+    gap: 14px;
+    margin-top: 35px;
+}
+.flyer{
+    position: relative;
+    width: 10rem;
+    min-width: inherit;
+    aspect-ratio: 10/14.0625;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: var(--bord-l);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 7px;
+    flex: 0 0 auto;
+}
+.flyer h3{
+    font-size: 1rem;
+}
+}

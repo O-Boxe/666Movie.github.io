@@ -1,0 +1,389 @@
+/*
+css pour la  navbar --> design telephone en premier !!
+*/
+.navbar{
+    width: 100vw;
+    height: 50px;
+    padding: 0.4375rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--stroke);
+    z-index: 10;
+}
+.burger{
+    width: 20px;
+    filter: var(--filter);
+}
+.logo{
+    height: 22px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 50%;
+    transform: translate(-50%);
+}
+.compte{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 150px;
+    background-color: var(--bg-d);
+    width: 150px;
+    border-radius: var(--bord-m);
+    z-index: 100;
+    padding: 7px 0;
+    display: none;
+}
+.compte.visible{
+    display: block;
+}
+.compte .profil-option{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.375rem 0.5625rem;
+    border-bottom: 1px solid var(--stroke);
+}
+.compte .profil-option img{
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+}
+.compte .profil-option h4{
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--font-u);
+}
+.compte .profil-option:hover{
+    background-color: transparent;
+    cursor: pointer;
+}
+.compte .profil-option:active{
+    background-color: var(--bg-t);
+}
+.compte .option{
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.375rem 0.5625rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.compte .option:hover{
+    background-color: transparent;
+    cursor: pointer;
+}
+.compte .option:active{
+    background-color: var(--bg-t);
+}
+.compte .option h3{
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--font-u);
+    width: calc(100% - 3rem);
+    padding-left: 0.375rem;
+}
+.compte .option img{
+    width:1.5rem;
+    max-height: 1.5rem;
+    filter: var(--filter);
+}
+.compte .option label{
+    font-family: 'Outfit';
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--font-u);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: calc(1.5rem + 0.375rem);
+}
+.compte .option .toggle{
+    width:1.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.compte .option .toggle::before{
+    content: '';
+    height: 8px;
+    width: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--font-d);
+    position: absolute;
+}
+.compte .option .toggle::after{
+    content: '';
+    height: 0.9375rem;
+    width: 0.9375rem;
+    border-radius: 1rem;
+    background-color: var(--font-t);
+    position: absolute;
+    right: 0;
+    transform: translateX(-.564rem);
+    transition:all .2s ease-in;
+}
+.compte .option .toggle:checked::after{
+    background-color: var(--red);
+    transform: translateX(0);
+    transition:all .2s ease-in;
+}
+.compte .option .toggle:checked::before{
+    background-color: var(--red-b);
+}
+.profil-pick{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+/* menu */
+.menu{
+    position: absolute;
+    height: 100vh;
+    width: 250px;
+    left: -250px;
+    top: 0;
+    display: flex;
+    transition: all .2s ease-in;
+    z-index: 11;
+}
+.menu.active{
+    left: 0;
+    transition: all .3s ease-out;
+}
+/* icon section */
+.icon-section{
+    background-color: var(--bg-u);
+    width: 70px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 20;
+}
+.mini-logo{
+    height: 28px;
+    margin: 16px 12px;
+}
+.icon-section .mini-txt-logo{
+    position: absolute;
+    height: 22px;
+    margin: 16px 0 0 0;
+    transform: translate(60px,20px);
+    opacity: 0;
+    transition: all .1s ease-in-out;
+    visibility: hidden;
+    z-index: 100;
+    filter: var(--filter);
+}
+.icon-section .mini-txt-logo.visible{
+    transform: translate(60px);
+    opacity: 1000;
+    transition: all .3s ease-out;
+    visibility: visible;
+}
+.icon-section .left-btn{
+    width: 100%;
+    height: 70px;
+    padding: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+.icon-section .left-btn svg{
+    z-index: 30;
+}
+.icon-section .left-btn:last-child{
+    position: absolute;
+    bottom: 0;
+}
+.icon-section .left-btn svg path{
+    fill: var(--font-d);
+}
+.icon-section .left-btn.active svg path{
+    fill: var(--font-u);
+}
+.icon-section .left-btn::before{
+    content: '';
+    left: 0;
+    z-index: 20;
+    background: rgb(255,0,0);
+    /* background: linear-gradient(90deg, rgba(255,0,0,0.16) 0%, rgba(0,0,0,0) 100%); */
+    width: 15px;
+    position: absolute;
+    height: 70px;
+    transform: translateX(-15px);
+}
+.icon-section .left-btn.active::before{
+    transform: translateX(0);
+    filter: blur(20px);
+    transition: all .2s ease-in;
+}
+.icon-section .left-btn::after{
+    content: '';
+    z-index: 20;
+    background-color: var(--accentuation);
+    width: 5px;
+    position: absolute;
+    left: 0;
+    height: 70px;
+    transform: translateX(-5px);
+}
+.icon-section .left-btn.active::after{
+    transform: translateX(0);
+    transition: all .2s ease-in;
+}
+/* text section */
+.txt-section{
+    display: flex;
+    width: min(100%,180px);
+    flex-direction: column;
+    justify-content: left;
+    position: absolute;
+    left: -1px;
+    position: relative;
+    background-color: var(--bg-u);
+    border-right: 1px solid var(--stroke);
+    z-index: 10;
+}
+.txt-section h3:first-child{
+    margin-top: 60px;
+}
+.txt-section h3{
+    font-family: outfit;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--font-d);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.txt-section h3.active{
+    color: var(--font-u);
+}
+.txt-section h3:last-child{
+    position: absolute;
+    bottom: 0;
+}
+.close-phone-btn{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+.close-pc-btn{
+    display: none;
+}
+.close-pc-btn img{
+    filter: var(--filter);
+}
+/* media <700px */
+@media (min-width:700px) {
+/* navbar */
+.navbar{
+    width: 0;
+    height: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0;
+    z-index: 10;
+}
+.logo{
+    display: none;
+}
+/* compte */
+.profil-pick{
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+}
+.compte{
+    top: auto;
+    right: auto;
+    bottom: 30px;
+    left: 30px;
+    width: 250px;
+}
+.compte .profil-option:hover{
+    background-color:var(--bg-u);
+}
+.compte .profil-option:active{
+    background-color: var(--bg-t);
+}
+.compte .option:hover{
+    background-color:var(--bg-u);
+}
+.compte .option:active{
+    background-color: var(--bg-t);
+}
+/* menu */
+.menu{
+    left: -180px;
+}
+/* icon section */
+.icon-section{
+    z-index: 20;
+    position: absolute;
+    right: 0;
+}
+/* txt section */
+.txt-section{
+    left: 71px;
+    position: absolute;
+    transition: all .2s ease-in-out;
+    z-index: 0;
+    height: 100vh;
+}
+.txt-section.active{
+    left: 250px;
+    transition: all .2s ease-in-out;
+    z-index: 10;
+}
+.icon-section.top{
+    z-index: unset;
+} 
+.close-phone-btn{
+    display: none;
+}
+/* bouton close pour ecran <700px */
+.close-pc-btn{
+    position: absolute;
+    top: 25px;
+    transform: translateY(-11.5px);
+    right: -11.5px;
+    z-index: 50;
+    width: 23px;
+    height: 23px;
+    background-color: var(--bg-d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+.close-pc-btn.active{
+    transform: translate(179px,-11.5px) rotate(0.5turn);
+    transition: all .2s ease-in-out;
+}
+}

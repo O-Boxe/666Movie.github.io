@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+::selection {
+    background: var(--accentuation);
+}
+:root{
+    /* palet */
+    --accentuation:#CC3232;
+    --green:#00FFB2;
+    --green-b:#0D7355;
+    --red:#E72E4F;
+    --red-b:#917a7a;
+    --blue:#0075FF;
+    --blue-b:#CAEFFB;
+    --orange:#FB983D;
+    --orange-b:#F8E7DC;
+    /* font color */
+    --font-u:#ECEBFF;
+    --font-d:#899098;
+    --font-t:#454545;
+    /* FONT FOR FLYER AND IMAGE BG */
+    --font-u-img:#ECEBFF;
+    --font-d-img:#899098;
+    --font-t-img:#454545;   
+    /* background */
+    --bg-u:#161616;
+    --bg-d:#1F1F1F;
+    --bg-t:#232323;
+    /* border radius */
+    --bord-xl:15px;
+    --bord-l:12px;
+    --bord-m:7px;
+    /* stroke color */
+    --stroke :#331F1F;
+    /* filter */
+    --filter : invert(100%) sepia(100%) saturate(0%) hue-rotate(66deg) brightness(102%) contrast(101%);
+}
+/* disable all */
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+/* desable all */
+/* bg body */
+body{
+    background-color: var(--bg-u);
+}
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    height: 200px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    height: 200px;
+}
+/* media */
+html{
+    font-size: 70%;
+    scroll-behavior: smooth;
+}
+.main-container{
+    padding: 16px 16px 0 16px;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+}
+@media (min-width:700px) {
+html{
+    font-size: 100%;
+}
+.main-container{
+    margin-left: 70px;
+    width: calc(100% - 70px);
+    height: calc(100vh);
+}
+}
