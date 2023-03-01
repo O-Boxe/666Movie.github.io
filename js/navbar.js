@@ -98,6 +98,8 @@ function changeTheme(){
     if (count == 0) {
         // theme blanc
         count = 1
+        document.getElementById('logo-phone').src = './img/logoPourBgW.svg'
+
         document.documentElement.style.setProperty('--bg-u', `#FFFFFF`)
         document.documentElement.style.setProperty('--bg-d', `#d0d0d0`)
         document.documentElement.style.setProperty('--bg-t', `#bebebe`)
@@ -112,6 +114,8 @@ function changeTheme(){
     }else{
         // theme sombre
         count = 0
+        document.getElementById('logo-phone').src = './img/logoPourBgB.svg'
+
         document.documentElement.style.setProperty('--bg-u', `#161616`)
         document.documentElement.style.setProperty('--bg-d', `#1F1F1F`)
         document.documentElement.style.setProperty('--bg-t', `#232323`)

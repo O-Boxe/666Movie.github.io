@@ -100,14 +100,36 @@ input[type="search"]:focus::-webkit-search-cancel-button {
     margin-top: 3px;
 }
 .flyer .save{
-    width: 1.5625rem;
+    width: 1.875rem;
     height: auto;
     position: absolute;
     top: 0.75rem;
     right: 0.75rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.253);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.3px);
+    -webkit-backdrop-filter: blur(17.3px);
+    padding: 0.375rem;
+    border-radius: 7px;
+}
+.flyer .save:hover{
+    background: rgba(255, 0, 0, 0.11);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.3px);
+    -webkit-backdrop-filter: blur(17.3px);
 }
 .flyer .save path{
     fill: var(--accentuation);
+}
+.flyer .save:hover path{
+    fill: var(--font-u-img);
+}
+.flyer .save.saved{
+    background-color: var(--accentuation);
+}
+.flyer .save.saved path{
+    fill: var(--font-u-img);
 }
 .top-section-btn{
     position: absolute;

@@ -27,9 +27,8 @@ css pour la  navbar --> design telephone en premier !!
     position: absolute;
     top: 25px;
     right: 25px;
-    width: 150px;
+    width: 180px;
     background-color: var(--bg-d);
-    width: 150px;
     border-radius: var(--bord-m);
     z-index: 100;
     padding: 7px 0;
@@ -143,8 +142,8 @@ css pour la  navbar --> design telephone en premier !!
     background-color: var(--red-b);
 }
 .profil-pick{
-    height: 40px;
-    width: 40px;
+    height: 2.5rem;
+    width: 2.5rem;
     cursor: pointer;
     border-radius: 30px;
 }
