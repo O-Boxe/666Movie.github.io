@@ -67,202 +67,26 @@ async function loadData(){
 async function loadDataTop(){
     var responseApi = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=10e786dc9a35f5eadcac1dd044301973&language=fr`);
     var data = await responseApi.json();
+    console.log(data)
     for (let i = 0; i < data.results.length; i++) {
         var genre = ''
         var genre2 = ''
         var genre3 = ''
+        var genres = {28: 'Action', 12: 'Aventure', 16: 'Animation', 35: 'Comédie' , 80: 'Crime', 99: 'Documentaire', 18: 'Drama', 10751: 'Famille', 14: 'Fantaisie', 36: 'Histoire', 27: 'Horreur', 10402: 'Musique', 9648: 'Mistère', 10749: 'Romance',878: 'Science Fiction', 10770: 'TV Movie', 53: 'Thriller', 10752: 'Guerre', 37: 'Western'}; //etc
+        
         // récuperer l'id des genres et les transformer en string
         if (data.results[i].genre_ids[0] != undefined){
-            switch (data.results[i].genre_ids[0]) {
-                case 28:
-                    genre = 'Action'
-                    break
-                case 12:
-                    genre = 'Aventure' 
-                    break
-                case 16:
-                    genre = 'Animation' 
-                    break
-                case 35:
-                    genre = 'Comédie' 
-                    break
-                case 80:
-                    genre = 'Crime' 
-                    break
-                case 99:
-                    genre = 'Documentaire' 
-                    break
-                case 18:
-                    genre = 'Drama' 
-                    break
-                case 10751:
-                    genre = 'Famille' 
-                    break
-                case 14:
-                    genre = 'Fantaisie' 
-                    break
-                case 36:
-                    genre = 'Histoire' 
-                    break
-                case 27:
-                    genre = 'Horreur' 
-                    break
-                case 10402:
-                    genre = 'Musique' 
-                    break
-                case 9648:
-                    genre = 'Mistère' 
-                    break
-                case 10749:
-                    genre = 'Romance' 
-                    break
-                case 878:
-                    genre = 'Science Fiction' 
-                    break
-                case 10770:
-                    genre = 'TV Movie' 
-                    break
-                case 53:
-                    genre = 'Thriller' 
-                    break
-                case 10752:
-                    genre = 'Guerre'
-                    break
-                case 37:
-                    genre = 'Western' 
-                    break
-                default:
-                    genre = ''
-            }
+            var genre = genres[data.results[i].genre_ids[0]];
         }
         // si il y a un premier genre on vérifie qu'il y en ai un deuxième
         if (data.results[i].genre_ids[1] != undefined) {
-            switch (data.results[i].genre_ids[1]) {
-                case 28:
-                    genre2 = ' • Action'
-                    break
-                case 12:
-                    genre2 = ' • Aventure' 
-                    break
-                case 16:
-                    genre2 = ' • Animation' 
-                    break
-                case 35:
-                    genre2 = ' • Comédie' 
-                    break
-                case 80:
-                    genre2 = ' • Crime' 
-                    break
-                case 99:
-                    genre2 = ' • Documentaire' 
-                    break
-                case 18:
-                    genre2 = ' • Drama' 
-                    break
-                case 10751:
-                    genre2 = ' • Famille' 
-                    break
-                case 14:
-                    genre2 = ' • Fantaisie' 
-                    break
-                case 36:
-                    genre2 = ' • Histoire' 
-                    break
-                case 27:
-                    genre2 = ' • Horreur' 
-                    break
-                case 10402:
-                    genre2 = ' • Musique' 
-                    break
-                case 9648:
-                    genre2 = ' • Mistère' 
-                    break
-                case 10749:
-                    genre2 = ' • Romance' 
-                    break
-                case 878:
-                    genre2 = ' • Science Fiction' 
-                    break
-                case 10770:
-                    genre2 = ' • TV Movie' 
-                    break
-                case 53:
-                    genre2 = ' • Thriller' 
-                    break
-                case 10752:
-                    genre2 = ' • Guerre'
-                    break
-                case 37:
-                    genre2 = ' • Western' 
-                    break
-                default:
-                    genre2 = ''
-            } 
+            var genre2 = " • " + genres[data.results[i].genre_ids[1]];
         }
         // si il y a un deuxieme genre on vérifie qu'il y en ai un troisieme
         if (data.results[i].genre_ids[2] != undefined) {
-            switch (data.results[i].genre_ids[2]) {
-                case 28:
-                    genre3 = ' • Action'
-                    break
-                case 12:
-                    genre3 = ' • Aventure' 
-                    break
-                case 16:
-                    genre3 = ' • Animation' 
-                    break
-                case 35:
-                    genre3 = ' • Comédie' 
-                    break
-                case 80:
-                    genre3 = ' • Crime' 
-                    break
-                case 99:
-                    genre3 = ' • Documentaire' 
-                    break
-                case 18:
-                    genre3 = ' • Drama' 
-                    break
-                case 10751:
-                    genre3 = ' • Famille' 
-                    break
-                case 14:
-                    genre3 = ' • Fantaisie' 
-                    break
-                case 36:
-                    genre3 = ' • Histoire' 
-                    break
-                case 27:
-                    genre3 = ' • Horreur' 
-                    break
-                case 10402:
-                    genre3 = ' • Musique' 
-                    break
-                case 9648:
-                    genre3 = ' • Mistère' 
-                    break
-                case 10749:
-                    genre3 = ' • Romance' 
-                    break
-                case 878:
-                    genre3 = ' • Science Fiction' 
-                    break
-                case 10770:
-                    genre3 = ' • TV Movie' 
-                    break
-                case 53:
-                    genre3 = ' • Thriller' 
-                    break
-                case 10752:
-                    genre3 = ' • Guerre'
-                    break
-                case 37:
-                    genre3 = ' • Western' 
-                    break
-                default:
-                    genre3 = ''
-            } 
+            var genre3 = " • " + genres[data.results[i].genre_ids[2]];
         }
+        // assembler le genres
         if (genre == '') {
             txtGenre = 'pad de genre disponible'
         } else if (genre2 == '') {
@@ -307,198 +131,21 @@ async function loadDataPopular(){
         var genre = ''
         var genre2 = ''
         var genre3 = ''
+        var genres = {28: 'Action', 12: 'Aventure', 16: 'Animation', 35: 'Comédie' , 80: 'Crime', 99: 'Documentaire', 18: 'Drama', 10751: 'Famille', 14: 'Fantaisie', 36: 'Histoire', 27: 'Horreur', 10402: 'Musique', 9648: 'Mistère', 10749: 'Romance',878: 'Science Fiction', 10770: 'TV Movie', 53: 'Thriller', 10752: 'Guerre', 37: 'Western'}; //etc
+        
         // récuperer l'id des genres et les transformer en string
         if (data.results[i].genre_ids[0] != undefined){
-            switch (data.results[i].genre_ids[0]) {
-                case 28:
-                    genre = 'Action'
-                    break
-                case 12:
-                    genre = 'Aventure' 
-                    break
-                case 16:
-                    genre = 'Animation' 
-                    break
-                case 35:
-                    genre = 'Comédie' 
-                    break
-                case 80:
-                    genre = 'Crime' 
-                    break
-                case 99:
-                    genre = 'Documentaire' 
-                    break
-                case 18:
-                    genre = 'Drama' 
-                    break
-                case 10751:
-                    genre = 'Famille' 
-                    break
-                case 14:
-                    genre = 'Fantaisie' 
-                    break
-                case 36:
-                    genre = 'Histoire' 
-                    break
-                case 27:
-                    genre = 'Horreur' 
-                    break
-                case 10402:
-                    genre = 'Musique' 
-                    break
-                case 9648:
-                    genre = 'Mistère' 
-                    break
-                case 10749:
-                    genre = 'Romance' 
-                    break
-                case 878:
-                    genre = 'Science Fiction' 
-                    break
-                case 10770:
-                    genre = 'TV Movie' 
-                    break
-                case 53:
-                    genre = 'Thriller' 
-                    break
-                case 10752:
-                    genre = 'Guerre'
-                    break
-                case 37:
-                    genre = 'Western' 
-                    break
-                default:
-                    genre = ''
-            }
+            var genre = genres[data.results[i].genre_ids[0]];
         }
         // si il y a un premier genre on vérifie qu'il y en ai un deuxième
         if (data.results[i].genre_ids[1] != undefined) {
-            switch (data.results[i].genre_ids[1]) {
-                case 28:
-                    genre2 = ' • Action'
-                    break
-                case 12:
-                    genre2 = ' • Aventure' 
-                    break
-                case 16:
-                    genre2 = ' • Animation' 
-                    break
-                case 35:
-                    genre2 = ' • Comédie' 
-                    break
-                case 80:
-                    genre2 = ' • Crime' 
-                    break
-                case 99:
-                    genre2 = ' • Documentaire' 
-                    break
-                case 18:
-                    genre2 = ' • Drama' 
-                    break
-                case 10751:
-                    genre2 = ' • Famille' 
-                    break
-                case 14:
-                    genre2 = ' • Fantaisie' 
-                    break
-                case 36:
-                    genre2 = ' • Histoire' 
-                    break
-                case 27:
-                    genre2 = ' • Horreur' 
-                    break
-                case 10402:
-                    genre2 = ' • Musique' 
-                    break
-                case 9648:
-                    genre2 = ' • Mistère' 
-                    break
-                case 10749:
-                    genre2 = ' • Romance' 
-                    break
-                case 878:
-                    genre2 = ' • Science Fiction' 
-                    break
-                case 10770:
-                    genre2 = ' • TV Movie' 
-                    break
-                case 53:
-                    genre2 = ' • Thriller' 
-                    break
-                case 10752:
-                    genre2 = ' • Guerre'
-                    break
-                case 37:
-                    genre2 = ' • Western' 
-                    break
-                default:
-                    genre2 = ''
-            } 
+            var genre2 = " • " + genres[data.results[i].genre_ids[1]];
         }
         // si il y a un deuxieme genre on vérifie qu'il y en ai un troisieme
         if (data.results[i].genre_ids[2] != undefined) {
-            switch (data.results[i].genre_ids[2]) {
-                case 28:
-                    genre3 = ' • Action'
-                    break
-                case 12:
-                    genre3 = ' • Aventure' 
-                    break
-                case 16:
-                    genre3 = ' • Animation' 
-                    break
-                case 35:
-                    genre3 = ' • Comédie' 
-                    break
-                case 80:
-                    genre3 = ' • Crime' 
-                    break
-                case 99:
-                    genre3 = ' • Documentaire' 
-                    break
-                case 18:
-                    genre3 = ' • Drama' 
-                    break
-                case 10751:
-                    genre3 = ' • Famille' 
-                    break
-                case 14:
-                    genre3 = ' • Fantaisie' 
-                    break
-                case 36:
-                    genre3 = ' • Histoire' 
-                    break
-                case 27:
-                    genre3 = ' • Horreur' 
-                    break
-                case 10402:
-                    genre3 = ' • Musique' 
-                    break
-                case 9648:
-                    genre3 = ' • Mistère' 
-                    break
-                case 10749:
-                    genre3 = ' • Romance' 
-                    break
-                case 878:
-                    genre3 = ' • Science Fiction' 
-                    break
-                case 10770:
-                    genre3 = ' • TV Movie' 
-                    break
-                case 53:
-                    genre3 = ' • Thriller' 
-                    break
-                case 10752:
-                    genre3 = ' • Guerre'
-                    break
-                case 37:
-                    genre3 = ' • Western' 
-                    break
-                default:
-                    genre3 = ''
-            } 
+            var genre3 = " • " + genres[data.results[i].genre_ids[2]];
         }
+        // assembler le genres
         if (genre == '') {
             txtGenre = 'pad de genre disponible'
         } else if (genre2 == '') {
@@ -543,197 +190,21 @@ async function loadDataHeader(){
     var genre3 = ''
     i = Math.floor(Math.random() * 19)
     // récuperer l'id des genres et les transformer en string
+    var genres = {28: 'Action', 12: 'Aventure', 16: 'Animation', 35: 'Comédie' , 80: 'Crime', 99: 'Documentaire', 18: 'Drama', 10751: 'Famille', 14: 'Fantaisie', 36: 'Histoire', 27: 'Horreur', 10402: 'Musique', 9648: 'Mistère', 10749: 'Romance',878: 'Science Fiction', 10770: 'TV Movie', 53: 'Thriller', 10752: 'Guerre', 37: 'Western'}; //etc
+        
+    // récuperer l'id des genres et les transformer en string
     if (data.results[i].genre_ids[0] != undefined){
-        switch (data.results[i].genre_ids[0]) {
-            case 28:
-                genre = 'Action'
-                break
-            case 12:
-                genre = 'Aventure' 
-                break
-            case 16:
-                genre = 'Animation' 
-                break
-            case 35:
-                genre = 'Comédie' 
-                break
-            case 80:
-                genre = 'Crime' 
-                break
-            case 99:
-                genre = 'Documentaire' 
-                break
-            case 18:
-                genre = 'Drama' 
-                break
-            case 10751:
-                genre = 'Famille' 
-                break
-            case 14:
-                genre = 'Fantaisie' 
-                break
-            case 36:
-                genre = 'Histoire' 
-                break
-            case 27:
-                genre = 'Horreur' 
-                break
-            case 10402:
-                genre = 'Musique' 
-                break
-            case 9648:
-                genre = 'Mistère' 
-                break
-            case 10749:
-                genre = 'Romance' 
-                break
-            case 878:
-                genre = 'Science Fiction' 
-                break
-            case 10770:
-                genre = 'TV Movie' 
-                break
-            case 53:
-                genre = 'Thriller' 
-                break
-            case 10752:
-                genre = 'Guerre'
-                break
-            case 37:
-                genre = 'Western' 
-                break
-            default:
-                genre = ''
-        }
+        var genre = genres[data.results[i].genre_ids[0]];
     }
     // si il y a un premier genre on vérifie qu'il y en ai un deuxième
     if (data.results[i].genre_ids[1] != undefined) {
-        switch (data.results[i].genre_ids[1]) {
-            case 28:
-                genre2 = ' • Action'
-                break
-            case 12:
-                genre2 = ' • Aventure' 
-                break
-            case 16:
-                genre2 = ' • Animation' 
-                break
-            case 35:
-                genre2 = ' • Comédie' 
-                break
-            case 80:
-                genre2 = ' • Crime' 
-                break
-            case 99:
-                genre2 = ' • Documentaire' 
-                break
-            case 18:
-                genre2 = ' • Drama' 
-                break
-            case 10751:
-                genre2 = ' • Famille' 
-                break
-            case 14:
-                genre2 = ' • Fantaisie' 
-                break
-            case 36:
-                genre2 = ' • Histoire' 
-                break
-            case 27:
-                genre2 = ' • Horreur' 
-                break
-            case 10402:
-                genre2 = ' • Musique' 
-                break
-            case 9648:
-                genre2 = ' • Mistère' 
-                break
-            case 10749:
-                genre2 = ' • Romance' 
-                break
-            case 878:
-                genre2 = ' • Science Fiction' 
-                break
-            case 10770:
-                genre2 = ' • TV Movie' 
-                break
-            case 53:
-                genre2 = ' • Thriller' 
-                break
-            case 10752:
-                genre2 = ' • Guerre'
-                break
-            case 37:
-                genre2 = ' • Western' 
-                break
-            default:
-                genre2 = ''
-        } 
+        var genre2 = " • " + genres[data.results[i].genre_ids[1]];
     }
     // si il y a un deuxieme genre on vérifie qu'il y en ai un troisieme
     if (data.results[i].genre_ids[2] != undefined) {
-        switch (data.results[i].genre_ids[2]) {
-            case 28:
-                genre3 = ' • Action'
-                break
-            case 12:
-                genre3 = ' • Aventure' 
-                break
-            case 16:
-                genre3 = ' • Animation' 
-                break
-            case 35:
-                genre3 = ' • Comédie' 
-                break
-            case 80:
-                genre3 = ' • Crime' 
-                break
-            case 99:
-                genre3 = ' • Documentaire' 
-                break
-            case 18:
-                genre3 = ' • Drama' 
-                break
-            case 10751:
-                genre3 = ' • Famille' 
-                break
-            case 14:
-                genre3 = ' • Fantaisie' 
-                break
-            case 36:
-                genre3 = ' • Histoire' 
-                break
-            case 27:
-                genre3 = ' • Horreur' 
-                break
-            case 10402:
-                genre3 = ' • Musique' 
-                break
-            case 9648:
-                genre3 = ' • Mistère' 
-                break
-            case 10749:
-                genre3 = ' • Romance' 
-                break
-            case 878:
-                genre3 = ' • Science Fiction' 
-                break
-            case 10770:
-                genre3 = ' • TV Movie' 
-                break
-            case 53:
-                genre3 = ' • Thriller' 
-                break
-            case 10752:
-                genre3 = ' • Guerre'
-                break
-            case 37:
-                genre3 = ' • Western' 
-                break
-            default:
-                genre3 = ''
-        } 
+        var genre3 = " • " + genres[data.results[i].genre_ids[2]];
     }
+    // assembler le genres
     if (genre == '') {
         txtGenre = 'pad de genre disponible'
     } else if (genre2 == '') {
@@ -805,198 +276,21 @@ async function loadDataHeader(){
             var genre = ''
             var genre2 = ''
             var genre3 = ''
-            // récuperer l'id des genres et les transformer en string
-            if (dataSim.results[i].genre_ids[0] != undefined){
-                switch (dataSim.results[i].genre_ids[0]) {
-                    case 28:
-                        genre = 'Action'
-                        break
-                    case 12:
-                        genre = 'Aventure' 
-                        break
-                    case 16:
-                        genre = 'Animation' 
-                        break
-                    case 35:
-                        genre = 'Comédie' 
-                        break
-                    case 80:
-                        genre = 'Crime' 
-                        break
-                    case 99:
-                        genre = 'Documentaire' 
-                        break
-                    case 18:
-                        genre = 'Drama' 
-                        break
-                    case 10751:
-                        genre = 'Famille' 
-                        break
-                    case 14:
-                        genre = 'Fantaisie' 
-                        break
-                    case 36:
-                        genre = 'Histoire' 
-                        break
-                    case 27:
-                        genre = 'Horreur' 
-                        break
-                    case 10402:
-                        genre = 'Musique' 
-                        break
-                    case 9648:
-                        genre = 'Mistère' 
-                        break
-                    case 10749:
-                        genre = 'Romance' 
-                        break
-                    case 878:
-                        genre = 'Science Fiction' 
-                        break
-                    case 10770:
-                        genre = 'TV Movie' 
-                        break
-                    case 53:
-                        genre = 'Thriller' 
-                        break
-                    case 10752:
-                        genre = 'Guerre'
-                        break
-                    case 37:
-                        genre = 'Western' 
-                        break
-                    default:
-                        genre = ''
-                }
-            }
-            // si il y a un premier genre on vérifie qu'il y en ai un deuxième
-            if (dataSim.results[i].genre_ids[1] != undefined) {
-                switch (dataSim.results[i].genre_ids[1]) {
-                    case 28:
-                        genre2 = ' • Action'
-                        break
-                    case 12:
-                        genre2 = ' • Aventure' 
-                        break
-                    case 16:
-                        genre2 = ' • Animation' 
-                        break
-                    case 35:
-                        genre2 = ' • Comédie' 
-                        break
-                    case 80:
-                        genre2 = ' • Crime' 
-                        break
-                    case 99:
-                        genre2 = ' • Documentaire' 
-                        break
-                    case 18:
-                        genre2 = ' • Drama' 
-                        break
-                    case 10751:
-                        genre2 = ' • Famille' 
-                        break
-                    case 14:
-                        genre2 = ' • Fantaisie' 
-                        break
-                    case 36:
-                        genre2 = ' • Histoire' 
-                        break
-                    case 27:
-                        genre2 = ' • Horreur' 
-                        break
-                    case 10402:
-                        genre2 = ' • Musique' 
-                        break
-                    case 9648:
-                        genre2 = ' • Mistère' 
-                        break
-                    case 10749:
-                        genre2 = ' • Romance' 
-                        break
-                    case 878:
-                        genre2 = ' • Science Fiction' 
-                        break
-                    case 10770:
-                        genre2 = ' • TV Movie' 
-                        break
-                    case 53:
-                        genre2 = ' • Thriller' 
-                        break
-                    case 10752:
-                        genre2 = ' • Guerre'
-                        break
-                    case 37:
-                        genre2 = ' • Western' 
-                        break
-                    default:
-                        genre2 = ''
-                } 
-            }
-            // si il y a un deuxieme genre on vérifie qu'il y en ai un troisieme
-            if (dataSim.results[i].genre_ids[2] != undefined) {
-                switch (dataSim.results[i].genre_ids[2]) {
-                    case 28:
-                        genre3 = ' • Action'
-                        break
-                    case 12:
-                        genre3 = ' • Aventure' 
-                        break
-                    case 16:
-                        genre3 = ' • Animation' 
-                        break
-                    case 35:
-                        genre3 = ' • Comédie' 
-                        break
-                    case 80:
-                        genre3 = ' • Crime' 
-                        break
-                    case 99:
-                        genre3 = ' • Documentaire' 
-                        break
-                    case 18:
-                        genre3 = ' • Drama' 
-                        break
-                    case 10751:
-                        genre3 = ' • Famille' 
-                        break
-                    case 14:
-                        genre3 = ' • Fantaisie' 
-                        break
-                    case 36:
-                        genre3 = ' • Histoire' 
-                        break
-                    case 27:
-                        genre3 = ' • Horreur' 
-                        break
-                    case 10402:
-                        genre3 = ' • Musique' 
-                        break
-                    case 9648:
-                        genre3 = ' • Mistère' 
-                        break
-                    case 10749:
-                        genre3 = ' • Romance' 
-                        break
-                    case 878:
-                        genre3 = ' • Science Fiction' 
-                        break
-                    case 10770:
-                        genre3 = ' • TV Movie' 
-                        break
-                    case 53:
-                        genre3 = ' • Thriller' 
-                        break
-                    case 10752:
-                        genre3 = ' • Guerre'
-                        break
-                    case 37:
-                        genre3 = ' • Western' 
-                        break
-                    default:
-                        genre3 = ''
-                } 
-            }
+            var genres = {28: 'Action', 12: 'Aventure', 16: 'Animation', 35: 'Comédie' , 80: 'Crime', 99: 'Documentaire', 18: 'Drama', 10751: 'Famille', 14: 'Fantaisie', 36: 'Histoire', 27: 'Horreur', 10402: 'Musique', 9648: 'Mistère', 10749: 'Romance',878: 'Science Fiction', 10770: 'TV Movie', 53: 'Thriller', 10752: 'Guerre', 37: 'Western'}; //etc
+        
+        // récuperer l'id des genres et les transformer en string
+        if (data.results[i].genre_ids[0] != undefined){
+            var genre = genres[data.results[i].genre_ids[0]];
+        }
+        // si il y a un premier genre on vérifie qu'il y en ai un deuxième
+        if (data.results[i].genre_ids[1] != undefined) {
+            var genre2 = " • " + genres[data.results[i].genre_ids[1]];
+        }
+        // si il y a un deuxieme genre on vérifie qu'il y en ai un troisieme
+        if (data.results[i].genre_ids[2] != undefined) {
+            var genre3 = " • " + genres[data.results[i].genre_ids[2]];
+        }
+        // assembler le genres
             if (genre == '') {
                 txtGenre = 'pad de genre disponible'
             } else if (genre2 == '') {
